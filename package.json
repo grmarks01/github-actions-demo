@@ -1,0 +1,17 @@
+{
+  "name": "github-actions-demo",
+  "version": "1.0.0",
+  "description": "Learning GitHub Actions with code quality checks",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint *.js"
+  },
+  "keywords": ["github-actions", "testing", "eslint", "jest"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "jest": "^29.7.0"
+  }
+}

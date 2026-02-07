@@ -1,0 +1,39 @@
+# Name of your workflow (shows up in GitHub UI)
+name: Code Quality Checks
+
+# When should this workflow run?
+on:
+  push:              # Run when code is pushed
+    branches: [ main ]
+  pull_request:      # Run when someone creates a pull request
+    branches: [ main ]
+
+# Jobs to run
+jobs:
+  test-and-lint:
+    # What operating system to use
+    runs-on: ubuntu-latest
+    
+    # Steps to execute
+    steps:
+      # Step 1: Get the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+      
+      # Step 4: Run ESLint
+      - name: Run ESLint
+        run: npm run lint
+      
+      # Step 5: Run tests
+      - name: Run tests
+        run: npm test
